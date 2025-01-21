@@ -1,3 +1,5 @@
+import Button from "./Button";
+
 function App() {
     return (
         <div>
@@ -7,8 +9,8 @@ function App() {
     );
 }
 
-function Button() {
-    return <button>Click Me</button>;
-}
+// function Button() {
+//     return <button>Click Me</button>;
+// }
 
 export default App;
