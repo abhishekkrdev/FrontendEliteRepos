@@ -4,7 +4,12 @@
 import { getButtonStyling } from "./Button.utils";
 
 function Button(props) {
-    const { text, onClickHandler, styleType = "primary" } = props;
+    const {
+        text,
+        onClickHandler,
+        styleType = "primary",
+        type = "button",
+    } = props;
 
     return (
         <button
@@ -14,6 +19,7 @@ function Button(props) {
             className={`px-4 py-2 ${getButtonStyling(
                 styleType
             )} bg-blue-500 text-white`}
+            type={type}
         >
             {text}
         </button>

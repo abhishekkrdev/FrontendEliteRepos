@@ -1,30 +1,14 @@
-import "./App.css";
-import Button from "./components/Button/Button";
+import { Route, Routes } from "react-router-dom";
+import StartGame from "./pages/StartGame";
+import PlayGame from "./pages/PlayGame";
 
 function App() {
     return (
-        <>
-            <Button
-                text="Click Me"
-                onClickHandler={() => {
-                    console.log("Click Me");
-                }}
-            />
-            <Button
-                text="Click Me2"
-                onClickHandler={() => {
-                    console.log("Click Me2");
-                }}
-                styleType="error"
-            />
-            <Button
-                text="Click Me3"
-                onClickHandler={() => {
-                    console.log("Click Me3");
-                }}
-                styleType="success"
-            />
-        </>
+        <Routes>
+            <Route path="/start" element={<StartGame />} />
+            <Route path="/start" element={<PlayGame />} />
+            <Route path="/" element={<PlayGame />} />
+        </Routes>
     );
 }
 
