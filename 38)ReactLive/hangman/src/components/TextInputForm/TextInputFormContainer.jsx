@@ -1,18 +1,24 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import TextInputForm from "./TextInputForm";
 import { useNavigate } from "react-router-dom";
 
 function TextInputFormContainer() {
     const navigate = useNavigate();
+
     const [inputType, setInputType] = useState("text");
     const [value, setValue] = useState("");
+
+    useEffect(()=>{
+        console.log('Component loaded')
+    })
 
     function handleFormSubmitHandler(e) {
         e.preventDefault();
         console.log("Form Submitted");
         if (value) {
             // if we have something in value then we want to go to the play page
-            navigate("/play");
+            // navigate(`/play?text=${value}`);
+            navigate(`/play`, { state: { wordSelected: value } });
         }
     }
 
