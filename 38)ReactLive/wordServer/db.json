@@ -1,0 +1,20 @@
+{
+    "words": [
+        {
+            "wordValue": "MANGO",
+            "wordHint": "A fruit"
+        },
+        {
+            "wordValue": "BANANA",
+            "wordHint": "A fruit"
+        },
+        {
+            "wordValue": "INDIA",
+            "wordHint": "A Country"
+        },
+        {
+            "wordValue": "LONDON",
+            "wordHint": "A City"
+        }
+    ]
+}

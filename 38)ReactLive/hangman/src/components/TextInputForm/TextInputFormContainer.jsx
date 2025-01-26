@@ -8,9 +8,21 @@ function TextInputFormContainer() {
     const [inputType, setInputType] = useState("text");
     const [value, setValue] = useState("");
 
-    useEffect(()=>{
-        console.log('Component loaded')
-    })
+    useEffect(() => {
+        console.log("Component first load"); // not call on update
+    }, []); // passing empty dependency array
+
+    useEffect(() => {
+        console.log("Component first load and update");
+    }); // not passing depend
+
+    useEffect(() => {
+        console.log("Component First Load and update value changed");
+    }, [value]);
+
+    useEffect(() => {
+        console.log("Component First Load and inputType value changed");
+    }, [inputType]);
 
     function handleFormSubmitHandler(e) {
         e.preventDefault();
@@ -36,14 +48,24 @@ function TextInputFormContainer() {
     }
 
     return (
-        <TextInputForm
-            value={value}
-            inputType={inputType}
-            handleFormSubmit={handleFormSubmitHandler}
-            handleTextInputChange={handleTextInputChangeHandler}
-            handleShowHideClick={handleShowHideClick}
-        />
+        <>
+            <TextInputForm
+                value={value}
+                inputType={inputType}
+                handleFormSubmit={handleFormSubmitHandler}
+                handleTextInputChange={handleTextInputChangeHandler}
+                handleShowHideClick={handleShowHideClick}
+            />
+            {inputType === "password" ? <Temp /> : null}
+        </>
     );
 }
-
+function Temp() {
+    useEffect(() => {
+        console.log("Temp Component First Load");
+        return () => {
+            console.log("Temp component unmounted");
+        };
+    }, []);
+}
 export default TextInputFormContainer;
